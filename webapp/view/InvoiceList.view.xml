@@ -6,11 +6,22 @@
 
 
     <List
+        id="invoiceList"
         headerText="{i18n>invoiceListTitle}"
         class="sapUiResponsiveMargin"
         width="auto"
         items="{invoice>/Invoices}"
     >
+    <headerToolbar>
+        <Toolbar>
+            <Title text="{i18n>invoiceListTitle}"/>
+            <ToolbarSpacer/>
+            <SearchField
+                width = "50%"
+                search="onFilterInvoices"
+            />
+        </Toolbar>
+    </headerToolbar>
     <items>
         <!-- ObjectListItem are part of the Fiori Design Guidelines, which rely on 
         semantic states (Success, Error, Warning, etc.) to enhance the user interface.
@@ -34,7 +45,7 @@
             <firstStatus>
                 <ObjectStatus
                 text = "{
-                    path : 'invoiceStatus',
+                    path : 'invoice>Status',
                     formatter: '.formatter.statusText'
                 }"
                 />
