@@ -2,7 +2,7 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
     "sap/ui/core/Fragment"
-], function (Controller, MessageToast, Fragment) {
+], function (Controller, MessageToast, Fragement) {
     'use strict';
     return Controller.extend("sap.ui.demo.walkthrough.controller.HelloPanel", {
         onShowHello: function () {
@@ -13,9 +13,8 @@ sap.ui.define([
             // Show message
             MessageToast.show(sMsg);
         },
-
-        onOpenDialog : function(){
-            this.getOwnerComponent().openHelloDialog()
+        onOpenDialog: function () {
+            this.getOwnerComponent().openHelloDialog();
         }
     })
 });
