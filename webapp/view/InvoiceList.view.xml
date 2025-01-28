@@ -1,0 +1,46 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName = "sap.ui.demo.walkthrough.controller.InvoiceList"
+    >
+
+
+    <List
+        headerText="{i18n>invoiceListTitle}"
+        class="sapUiResponsiveMargin"
+        width="auto"
+        items="{invoice>/Invoices}"
+    >
+    <items>
+        <!-- ObjectListItem are part of the Fiori Design Guidelines, which rely on 
+        semantic states (Success, Error, Warning, etc.) to enhance the user interface.
+
+        numberState property is designed to give visual feedback based on Semantic values 
+
+         -->
+        <ObjectListItem
+            title = "{invoice>Quantity} x {invoice>ProductName}"
+            number = "{
+                parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
+                type: 'sap.ui.model.type.Currency',
+                format: {
+                    showMeasure: false
+                }
+            }"
+            numberUnit = "{view>/currency}"
+            
+            numberState = "{= ${invoice>ExtendedPrice} > 50 ? 'Error'  : 'Success'}"
+            >
+            <firstStatus>
+                <ObjectStatus
+                text = "{
+                    path : 'invoiceStatus',
+                    formatter: '.formatter.statusText'
+                }"
+                />
+            </firstStatus>
+        </ObjectListItem>
+    </items>
+    </List>
+
+</mvc:View>
