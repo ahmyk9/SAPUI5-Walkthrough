@@ -7,13 +7,9 @@
         <content>
             <core:Icon
                 src="sap-icon://hello-world"
-                size="4rem"
-                class="sapUiLargeMargin"
-                />
+                size="8rem"
+                class="sapUiMediumMargin"/>
         </content>
-        <Text
-        text="Hi {/recipient/name}"
-        ></Text>
         <beginButton>
             <Button
                 text="{i18n>dialogCloseButtonText}"
